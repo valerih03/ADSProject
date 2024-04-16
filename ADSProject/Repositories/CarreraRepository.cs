@@ -52,6 +52,7 @@ namespace ADSProject.Repositories
         {
             try
             {
+
                 if (lstCarrera.Count > 0)
                 {
                     carrera.IdCarrera = lstCarrera.Last().IdCarrera + 1;

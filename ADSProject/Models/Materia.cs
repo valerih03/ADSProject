@@ -1,8 +1,11 @@
-﻿namespace ADSProject.Models
+﻿using System.ComponentModel.DataAnnotations;
+namespace ADSProject.Models
 {
     public class Materia
     {
         public int IdMateria { get; set; }
+        [Required(ErrorMessage = "Este campo es requerido")]
+        [MaxLength(length: 50, ErrorMessage = "La longitud del campo no puede ser mayor a 50 caracteres.")]
         public string NombreMateria { get; set; }
     }
 }
