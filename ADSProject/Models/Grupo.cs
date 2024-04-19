@@ -1,6 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 namespace ADSProject.Models
 {
+    [PrimaryKey(nameof(IdGrupo))]
     public class Grupo
     {
         [Required(ErrorMessage = "Este campo es requerido")]
