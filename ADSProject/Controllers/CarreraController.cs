@@ -48,7 +48,7 @@ namespace ADSProject.Controllers
 
                 return Ok(new { pCodRespuesta, pMensajeUsuario, pMensajeTecnico });
             }
-            catch
+            catch (Exception)
             {
 
                 throw;
@@ -80,7 +80,7 @@ namespace ADSProject.Controllers
 
                 return Ok(new { pCodRespuesta, pMensajeUsuario, pMensajeTecnico });
             }
-            catch
+            catch (Exception)
             {
                 throw;
             }
@@ -109,7 +109,7 @@ namespace ADSProject.Controllers
 
                 return Ok(new { pCodRespuesta, pMensajeUsuario, pMensajeTecnico });
             }
-            catch
+            catch (Exception)
             {
                 throw;
             }
@@ -135,7 +135,7 @@ namespace ADSProject.Controllers
                 }
 
             }
-            catch
+            catch (Exception)
             {
 
                 throw;
@@ -151,7 +151,7 @@ namespace ADSProject.Controllers
                 List<Carrera> lstcarreras = this.carrera.ObtenerCarreras();
                 return Ok(lstcarreras);
             }
-            catch
+            catch(Exception)
             {
                 throw;
             }
