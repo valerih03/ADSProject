@@ -7,31 +7,14 @@ namespace ADSProject.Repositories
     {
         private List<Carrera> lstCarrera = new List<Carrera>
         {
-            new Carrera
-            {
-                IdCarrera = 1,
-                Codigo = "I01001",
-                Nombre = "Ingenieria en Sistemas Computacionales"
-            },
-            new Carrera
-            {
-                IdCarrera = 2,
-                Codigo = "I02001",
-                Nombre = "Ingenieria Electrica"
-            }
-            ,
-            new Carrera
-            {
-                IdCarrera = 3,
-                Codigo = "I03001",
-                Nombre = "Ingenieria en Agronegocios"
-            },
-            new Carrera
-            {
-                IdCarrera = 4,
-                Codigo = "I04001",
-                Nombre = "Ingenieria Industrial"
-            }
+            new Carrera { IdCarrera = 1,CodigoCarrera = "I01001",
+                NombreCarrera = "Ingenieria en Sistemas Computacionales" },
+            new Carrera { IdCarrera = 2,CodigoCarrera = "I02001",
+                NombreCarrera = "Ingenieria Electrica"},
+            new Carrera { IdCarrera = 3, CodigoCarrera = "I03001",
+                NombreCarrera = "Ingenieria en Agronegocios" },
+            new Carrera { IdCarrera = 4,CodigoCarrera = "I04001",
+                NombreCarrera = "Ingenieria Industrial" }
         };
         public int ActualizarCarrera(int idCarrera, Carrera carrera)
         {
@@ -40,9 +23,8 @@ namespace ADSProject.Repositories
                 int indice = lstCarrera.FindIndex(tmp => tmp.IdCarrera == idCarrera);
                 lstCarrera[indice] = carrera;
                 return idCarrera;
-
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -52,15 +34,12 @@ namespace ADSProject.Repositories
         {
             try
             {
-
                 if (lstCarrera.Count > 0)
                 {
                     carrera.IdCarrera = lstCarrera.Last().IdCarrera + 1;
                 }
-
                 lstCarrera.Add(carrera);
                 return carrera.IdCarrera;
-
             }
             catch (Exception)
             {
@@ -75,9 +54,20 @@ namespace ADSProject.Repositories
                 int indice = lstCarrera.FindIndex(tmp => tmp.IdCarrera == idCarrera);
                 lstCarrera.RemoveAt(indice);
                 return true;
-
             }
-            catch (Exception e)
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public Carrera ObtenerTodasLasCarrerasPorID(int idCarrera)
+        {
+            try
+            {
+                Carrera carrera = lstCarrera.FirstOrDefault(tmp => tmp.IdCarrera == idCarrera);
+                return carrera;
+            }
+            catch (Exception)
             {
                 throw;
             }
@@ -89,22 +79,7 @@ namespace ADSProject.Repositories
             {
                 return lstCarrera;
             }
-            catch (Exception e)
-            {
-                throw;
-            }
-        }
-
-        public Carrera ObtenerTodasLasCarrerasPorID(int idCarrera)
-        {
-            try
-            {
-                Carrera carrera = lstCarrera.FirstOrDefault(tmp => tmp.IdCarrera == idCarrera);
-
-                return carrera;
-
-            }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
